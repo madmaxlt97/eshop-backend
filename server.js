@@ -5,9 +5,13 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const { PORT, CORS_ORIGIN } = process.env;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: CORS_ORIGIN,
+  })
+);
 
 app.use(express.json());
 
